@@ -33,7 +33,7 @@ def flight_list(request):
         schedules_serializer = ScheduleSerializer(data=schedule_data)
         if schedules_serializer.is_valid():
             schedules_serializer.save()
-            return JsonResponse(schedule_data.data, status=status.HTTP_201_CREATED)
+            return JsonResponse(schedules_serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(schedules_serializer.err, status=status.HTTP_400_BAD_REQUEST)
 
     # Delete All
